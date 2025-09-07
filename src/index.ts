@@ -2,7 +2,13 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import dotenv from 'dotenv';
-import { ImageTools, GenerateImageSchema, ValidateImageSchema } from './tools.js';
+import { 
+  ImageTools, 
+  GenerateImageSchema, 
+  ValidateImageSchema,
+  MakeTransparentSchema,
+  InspectTransparencySchema
+} from './tools.js';
 
 // Suppress dotenv output to prevent MCP protocol issues
 const originalLog = console.log;
@@ -82,6 +88,61 @@ async function main() {
         ],
         isError: !result.valid
       };
+    }
+  );
+
+  server.registerTool(
+    'make_transparent',
+    {
+      title: 'Make Transparent',
+      description: 'Convert image backgrounds to transparent. Removes specified color (white/black/hex) from images for game assets.',
+      inputSchema: MakeTransparentSchema.shape
+    },
+    async (input) => {
+      const result = await imageTools.makeTransparent(input as any);
+      
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify(result, null, 2)
+          }
+        ],
+        isError: !result.success
+      };
+    }
+  );
+
+  server.registerTool(
+    'inspect_transparency',
+    {
+      title: 'Inspect Transparency',
+      description: 'Analyze image transparency. Reports alpha channel status, transparent pixel percentage, and recommendations.',
+      inputSchema: InspectTransparencySchema.shape
+    },
+    async (input) => {
+      try {
+        const result = await imageTools.inspectTransparency(input as any);
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(result, null, 2)
+            }
+          ]
+        };
+      } catch (error: any) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({ error: error.message }, null, 2)
+            }
+          ],
+          isError: true
+        };
+      }
     }
   );
 
