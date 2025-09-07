@@ -1,7 +1,27 @@
 # Nano Banana MCP Server - Agent Documentation
 
+## Quick Demo Setup (1 Minute!)
+
+```bash
+# Clone and run quickstart
+git clone https://github.com/yourusername/nano-banana-mcp.git
+cd nano-banana-mcp
+./quickstart.sh
+
+# Start using immediately
+gemini chat
+> "Generate a robot holding a banana at ./demo.png"
+```
+
 ## Project Overview
 This is an MCP (Model Context Protocol) server that wraps the Gemini Flash 2.5 image generation API. It provides a clean, unopinionated interface for AI agents to generate, edit, and compose images.
+
+### New: Nano Banana CLI
+We now include a powerful CLI tool that makes setup seamless:
+- **Interactive Setup Wizard**: Guides through configuration
+- **Auto-Detection**: Finds installations automatically  
+- **Safe Config Management**: Automatic backups, non-destructive edits
+- **Health Monitoring**: `nano-banana status` and `doctor` commands
 
 ## Key Design Decisions
 

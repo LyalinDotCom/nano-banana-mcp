@@ -63,42 +63,98 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 - **Image Validation**: Verify generated images are valid and meet size requirements
 - **Comprehensive Error Handling**: Clear feedback on API errors, quota issues, and failures
 
-## Installation
+## 🚀 Quick Install (1 Minute!)
 
-1. Clone this repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up your Gemini API key:
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/nano-banana-mcp.git
+cd nano-banana-mcp
+
+# Run the quickstart script - it does EVERYTHING!
+./quickstart.sh
+
+# That's it! Start using it:
+gemini chat
+> "Create a robot holding a banana at ./robot.png"
+```
+
+The quickstart script will:
+- ✅ Check Node.js version
+- ✅ Install Gemini CLI if needed
+- ✅ Build the project
+- ✅ Configure your API key
+- ✅ Set up Gemini CLI integration
+- ✅ Verify everything works
+
+## Installation Options
+
+### Option 1: Automatic Setup with CLI (Recommended)
+
+Our CLI tool handles everything for you:
+
+```bash
+# After cloning and installing
+cd nano-banana-mcp
+npm install
+
+# Run interactive setup
+npm run setup
+```
+
+The wizard will:
+- ✅ Check prerequisites (Node.js 18+, Gemini CLI)
+- ✅ Auto-detect installations
+- ✅ Configure your API key securely
+- ✅ Test the server works
+- ✅ Create automatic backups
+
+### Option 2: Manual Setup
+
+1. **Configure API key:**
    ```bash
    cp .env.example .env
-   # Edit .env and add your GEMINI_API_KEY
+   # Edit .env with your GEMINI_API_KEY
    ```
 
-## Configuration
+2. **Build the project:**
+   ```bash
+   npm run build
+   ```
 
-Create a `.env` file with your Gemini API key:
-```env
-GEMINI_API_KEY=your-gemini-api-key-here
-```
+3. **Add to Gemini CLI manually** (see [docs/gemini-cli-setup.md](docs/gemini-cli-setup.md))
 
 Get your API key from: https://makersuite.google.com/app/apikey
 
+## CLI Commands
+
+The Nano Banana CLI provides powerful management tools:
+
+```bash
+# Interactive setup wizard
+nano-banana setup
+
+# Check installation status
+nano-banana status
+
+# Diagnose any issues
+nano-banana doctor
+
+# Safely remove configuration
+nano-banana remove
+```
+
 ## Usage
 
-### Running the Server
+Once configured, just use natural language with Gemini CLI:
 
-Development mode:
 ```bash
-npm run dev
+gemini chat
 ```
 
-Production mode:
-```bash
-npm run build
-npm start
-```
+Then ask for images:
+- "Generate a cyberpunk city at ./city.png"
+- "Create 5 potion icons at ./items/potions.png"
+- "Add a sunset to ./photo.jpg"
 
 ## 🌟 Why Nano Banana?
 

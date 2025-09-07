@@ -5,9 +5,13 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run build:cli",
+    "build:server": "tsc",
+    "build:cli": "cd cli && npm install && npm run build",
     "dev": "tsx src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "setup": "cd cli && npm run dev setup",
+    "postinstall": "npm run build"
   },
   "keywords": ["mcp", "gemini", "image-generation"],
   "author": "",
