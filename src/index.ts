@@ -4,7 +4,11 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import dotenv from 'dotenv';
 import { ImageTools, GenerateImageSchema, ValidateImageSchema } from './tools.js';
 
-dotenv.config({ silent: true } as any);
+// Suppress dotenv output to prevent MCP protocol issues
+const originalLog = console.log;
+console.log = () => {};
+dotenv.config();
+console.log = originalLog;
 
 const apiKey = process.env.GEMINI_API_KEY;
 if (!apiKey) {
