@@ -20,7 +20,6 @@ export interface GenerateImageOptions {
 
 export interface GeneratedImage {
   path: string;
-  data: string;
   size: { width: number; height: number };
 }
 
@@ -90,7 +89,6 @@ export class GeminiClient {
               
               generatedImages.push({
                 path: outputPath,
-                data: imageData,
                 size: {
                   width: metadata.width || 0,
                   height: metadata.height || 0
