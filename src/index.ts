@@ -7,7 +7,12 @@ import {
   GenerateImageSchema, 
   ValidateImageSchema,
   MakeTransparentSchema,
-  InspectTransparencySchema
+  InspectTransparencySchema,
+  CombineImagesSchema,
+  TransformImageSchema,
+  AdjustImageSchema,
+  CompositeImagesSchema,
+  BatchProcessSchema
 } from './tools.js';
 
 // Suppress dotenv output to prevent MCP protocol issues
@@ -131,6 +136,176 @@ async function main() {
               text: JSON.stringify(result, null, 2)
             }
           ]
+        };
+      } catch (error: any) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({ error: error.message }, null, 2)
+            }
+          ],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.registerTool(
+    'combine_images',
+    {
+      title: 'Combine Images',
+      description: 'Stitch multiple images together horizontally, vertically, or in a grid layout. Perfect for creating panoramas, sprite sheets, or image collages.',
+      inputSchema: CombineImagesSchema.shape
+    },
+    async (input) => {
+      try {
+        const result = await imageTools.combineImages(input as any);
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(result, null, 2)
+            }
+          ],
+          isError: !result.success
+        };
+      } catch (error: any) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({ error: error.message }, null, 2)
+            }
+          ],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.registerTool(
+    'transform_image',
+    {
+      title: 'Transform Image',
+      description: 'Apply transformations like resize, crop, rotate, flip, and flop to images. Supports multiple operations in a single call.',
+      inputSchema: TransformImageSchema.shape
+    },
+    async (input) => {
+      try {
+        const result = await imageTools.transformImage(input as any);
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(result, null, 2)
+            }
+          ],
+          isError: !result.success
+        };
+      } catch (error: any) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({ error: error.message }, null, 2)
+            }
+          ],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.registerTool(
+    'adjust_image',
+    {
+      title: 'Adjust Image',
+      description: 'Apply color and quality adjustments like blur, sharpen, grayscale, tint, brightness, saturation, and hue to images.',
+      inputSchema: AdjustImageSchema.shape
+    },
+    async (input) => {
+      try {
+        const result = await imageTools.adjustImage(input as any);
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(result, null, 2)
+            }
+          ],
+          isError: !result.success
+        };
+      } catch (error: any) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({ error: error.message }, null, 2)
+            }
+          ],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.registerTool(
+    'composite_images',
+    {
+      title: 'Composite Images',
+      description: 'Layer multiple images with advanced blending modes and positioning. Create watermarks, overlays, or complex compositions.',
+      inputSchema: CompositeImagesSchema.shape
+    },
+    async (input) => {
+      try {
+        const result = await imageTools.compositeImages(input as any);
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(result, null, 2)
+            }
+          ],
+          isError: !result.success
+        };
+      } catch (error: any) {
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({ error: error.message }, null, 2)
+            }
+          ],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.registerTool(
+    'batch_process',
+    {
+      title: 'Batch Process Images',
+      description: 'Process multiple images at once. Apply resize, format conversion, and naming patterns to entire directories.',
+      inputSchema: BatchProcessSchema.shape
+    },
+    async (input) => {
+      try {
+        const result = await imageTools.batchProcess(input as any);
+        
+        return {
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify(result, null, 2)
+            }
+          ],
+          isError: !result.success
         };
       } catch (error: any) {
         return {
