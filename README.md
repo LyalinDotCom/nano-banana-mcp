@@ -365,5 +365,5 @@ MIT License - see [LICENSE](LICENSE) file for details
 ---
 
 <p align="center">
-  Made with ❤️ and 🍌 by the Nano Banana team
+  Made with ❤️ and 🍌 by a Nano Banana fan
 </p>

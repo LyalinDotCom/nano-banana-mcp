@@ -13,31 +13,31 @@ You can use Nano Banana MCP directly with NPX without installing it globally. Th
 ### 1. Initialize a New Project
 ```bash
 # Create a new project with .env file
-npx nano-banana-mcp init --api-key YOUR_GEMINI_API_KEY
+npx @lyalindotcom/nano-banana-mcp init --api-key YOUR_GEMINI_API_KEY
 ```
 
 ### 2. Set Up with Your AI Client
 ```bash
 # Interactive setup wizard
-npx nano-banana-mcp setup
+npx @lyalindotcom/nano-banana-mcp setup
 
 # Non-interactive setup with flags
-npx nano-banana-mcp setup --api-key YOUR_KEY --trust
+npx @lyalindotcom/nano-banana-mcp setup --api-key YOUR_KEY --trust
 ```
 
 ### 3. Run the MCP Server Directly
 ```bash
 # Start the server (reads .env or uses --api-key)
-npx nano-banana-mcp serve
+npx @lyalindotcom/nano-banana-mcp serve
 
 # With explicit API key
-npx nano-banana-mcp serve --api-key YOUR_KEY
+npx @lyalindotcom/nano-banana-mcp serve --api-key YOUR_KEY
 ```
 
 ### 4. Check Status
 ```bash
 # Check installation and configuration
-npx nano-banana-mcp status
+npx @lyalindotcom/nano-banana-mcp status
 ```
 
 ## Installation Options
@@ -45,20 +45,20 @@ npx nano-banana-mcp status
 ### Option 1: NPX (No Install)
 Best for one-time use or testing:
 ```bash
-npx nano-banana-mcp@latest serve
+npx @lyalindotcom/nano-banana-mcp@latest serve
 ```
 
 ### Option 2: Global Install
 Best for frequent use:
 ```bash
-npm install -g nano-banana-mcp
+npm install -g @lyalindotcom/nano-banana-mcp
 nano-banana serve
 ```
 
 ### Option 3: Project Dependency
 Best for project-specific setups:
 ```bash
-npm install --save-dev nano-banana-mcp
+npm install --save-dev @lyalindotcom/nano-banana-mcp
 npx nano-banana serve
 ```
 
@@ -229,5 +229,5 @@ npm publish --tag beta
 ## Support
 
 - GitHub Issues: [github.com/yourusername/nano-banana-mcp/issues](https://github.com/yourusername/nano-banana-mcp/issues)
-- NPM Package: [npmjs.com/package/nano-banana-mcp](https://www.npmjs.com/package/nano-banana-mcp)
+- NPM Package: [npmjs.com/package/@lyalindotcom/nano-banana-mcp](https://www.npmjs.com/package/@lyalindotcom/nano-banana-mcp)
 - Documentation: [github.com/yourusername/nano-banana-mcp#readme](https://github.com/yourusername/nano-banana-mcp#readme)

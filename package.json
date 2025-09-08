@@ -1,6 +1,6 @@
 {
   "name": "@lyalindotcom/nano-banana-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for Gemini Flash 2.5 image generation with CLI tools",
   "main": "dist/server/index.js",
   "type": "module",
@@ -31,7 +31,7 @@
     "postinstall": ""
   },
   "keywords": ["mcp", "gemini", "image-generation"],
-  "author": "",
+  "author": "A Nano Banana Fan",
   "license": "MIT",
   "dependencies": {
     "@google/genai": "^1.17.0",

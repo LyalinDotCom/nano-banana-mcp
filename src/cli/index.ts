@@ -32,12 +32,12 @@ ${chalk.cyan('Examples:')}
   $ nano-banana remove             ${chalk.gray('# Remove configuration')}
   
   ${chalk.cyan('Quick start with npx:')}
-  $ npx nano-banana-mcp setup     ${chalk.gray('# One-time setup')}
-  $ npx nano-banana-mcp serve     ${chalk.gray('# Run server directly')}
+  $ npx @lyalindotcom/nano-banana-mcp setup     ${chalk.gray('# One-time setup')}
+  $ npx @lyalindotcom/nano-banana-mcp serve     ${chalk.gray('# Run server directly')}
 
 ${chalk.cyan('More Information:')}
   GitHub: ${chalk.blue('https://github.com/yourusername/nano-banana-mcp')}
-  NPM:    ${chalk.blue('https://www.npmjs.com/package/nano-banana-mcp')}
+  NPM:    ${chalk.blue('https://www.npmjs.com/package/@lyalindotcom/nano-banana-mcp')}
 `);
 
 // Setup command
