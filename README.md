@@ -296,9 +296,9 @@ nano-banana-mcp/
 - **Gemini API Key** with image generation access ([Get one here](https://aistudio.google.com/apikey))
 - **TypeScript** 5.0+ (for development)
 
-## 🤝 Contributing
+## 🔧 Project Status
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+This is an experimental sample project. While GitHub issues are welcome for bug reports and feedback, this project is not actively seeking contributions and long-term maintenance is not guaranteed at this time.
 
 ## 📄 License
 
