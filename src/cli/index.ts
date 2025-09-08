@@ -86,7 +86,7 @@ program
       if (!apiKey) {
         console.error(chalk.red('Error: Gemini API key is required'));
         console.log(chalk.yellow('Provide it via --api-key flag or GEMINI_API_KEY environment variable'));
-        console.log(chalk.cyan('Get your API key at: https://makersuite.google.com/app/apikey'));
+        console.log(chalk.cyan('Get your API key at: https://aistudio.google.com/apikey'));
         process.exit(1);
       }
 
@@ -155,7 +155,7 @@ program
       let apiKey = options.apiKey;
       if (!apiKey) {
         console.log(chalk.yellow('Please provide API key with --api-key flag'));
-        console.log(chalk.cyan('Get your API key at: https://makersuite.google.com/app/apikey'));
+        console.log(chalk.cyan('Get your API key at: https://aistudio.google.com/apikey'));
         process.exit(1);
       }
 

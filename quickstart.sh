@@ -68,7 +68,7 @@ if [ -z "$GEMINI_API_KEY" ]; then
         source .env
     else
         echo -e "${YELLOW}📝 Gemini API Key Setup${NC}"
-        echo -e "${CYAN}Get your key at: https://makersuite.google.com/app/apikey${NC}"
+        echo -e "${CYAN}Get your key at: https://aistudio.google.com/apikey${NC}"
         echo ""
         read -p "Enter your Gemini API key: " -s API_KEY
         echo ""

@@ -141,7 +141,7 @@ async function interactiveSetup(options: SetupOptions, configManager: ConfigMana
   // Get API key
   if (!options.apiKey) {
     console.log(chalk.cyan('\n📝 API Key Setup'));
-    console.log(chalk.gray('Get your key at: https://makersuite.google.com/app/apikey\n'));
+    console.log(chalk.gray('Get your key at: https://aistudio.google.com/apikey\n'));
 
     const { apiKey } = await inquirer.prompt([{
       type: 'password',

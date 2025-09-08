@@ -148,7 +148,7 @@ The wizard will:
 
 3. **Add to Gemini CLI manually** (see [docs/gemini-cli-setup.md](docs/gemini-cli-setup.md))
 
-Get your API key from: https://makersuite.google.com/app/apikey
+Get your API key from: https://aistudio.google.com/apikey
 
 ## CLI Commands
 
@@ -337,7 +337,7 @@ nano-banana-mcp/
 ## 🛠️ Requirements
 
 - **Node.js** 18 or higher
-- **Gemini API Key** with image generation access ([Get one here](https://makersuite.google.com/app/apikey))
+- **Gemini API Key** with image generation access ([Get one here](https://aistudio.google.com/apikey))
 - **TypeScript** 5.0+ (for development)
 
 ## 🤝 Contributing
