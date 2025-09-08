@@ -7,4 +7,4 @@ dist/
 generated-images/
 test-images/
 temp/
-*.tmp
+*.tmp*.tgz
