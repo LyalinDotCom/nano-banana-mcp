@@ -1,6 +1,6 @@
 {
   "name": "@lyalindotcom/nano-banana-mcp",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "MCP server for Gemini Flash 2.5 image generation with CLI tools",
   "main": "dist/server/index.js",
   "type": "module",
