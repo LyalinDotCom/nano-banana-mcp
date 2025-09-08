@@ -55,16 +55,49 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 
 ## Features
 
+### 🎨 Image Generation (Powered by Gemini Flash 2.5)
 - **Text-to-Image Generation**: Create images from text descriptions
 - **Image Editing**: Modify existing images with text prompts
 - **Multi-Image Composition**: Combine multiple images or transfer styles
 - **Batch Generation**: Generate multiple variations at once
+
+### 🛠️ Image Manipulation (Powered by Sharp)
+- **Combine Images**: Stitch images into panoramas, grids, or strips
+- **Transform Images**: Resize, crop, rotate, flip, and flop
+- **Adjust Images**: Blur, sharpen, grayscale, tint, brightness, saturation
+- **Composite Images**: Layer images with blend modes and positioning
+- **Batch Processing**: Apply operations to entire directories
+
+### 🔧 Developer Features
+- **NPX Support**: Run without installation using `npx @lyalindotcom/nano-banana-mcp`
 - **Smart Path Handling**: Automatically creates directories and handles file paths
 - **Image Validation**: Verify generated images are valid and meet size requirements
 - **Comprehensive Error Handling**: Clear feedback on API errors, quota issues, and failures
+- **MCP Protocol**: Works with any MCP-compatible AI client
 
 ## 🚀 Quick Install (1 Minute!)
 
+### Option 1: NPX (Recommended - No Installation!)
+```bash
+# Run directly with npx - no installation needed!
+npx @lyalindotcom/nano-banana-mcp init --api-key YOUR_GEMINI_KEY
+npx @lyalindotcom/nano-banana-mcp serve
+
+# Or set up with your AI client
+npx @lyalindotcom/nano-banana-mcp setup
+```
+
+### Option 2: Global Install
+```bash
+# Install globally
+npm install -g @lyalindotcom/nano-banana-mcp
+
+# Initialize and run
+nano-banana init --api-key YOUR_GEMINI_KEY
+nano-banana serve
+```
+
+### Option 3: From Source
 ```bash
 # Clone the repo
 git clone https://github.com/yourusername/nano-banana-mcp.git

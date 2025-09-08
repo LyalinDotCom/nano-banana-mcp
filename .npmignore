@@ -1,0 +1,76 @@
+# Source TypeScript files (only ship compiled JS)
+src/
+*.ts
+!*.d.ts
+
+# Development and test files
+test-*
+demo-*
+examples/
+coverage/
+.vscode/
+.idea/
+
+# Environment and config files
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Git and CI files
+.git/
+.github/
+.gitignore
+.gitlab-ci.yml
+.travis.yml
+
+# Build configuration
+tsconfig.json
+tsconfig.*.json
+rollup.config.js
+webpack.config.js
+
+# Documentation source files (keep compiled docs)
+docs-src/
+*.md
+!README.md
+!LICENSE
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Development dependencies
+node_modules/
+.npm/
+.yarn/
+
+# Test assets and scripts
+test-assets/
+test-scripts/
+test-output/
+
+# CLI source (if we decide to keep it separate)
+cli/
+
+# Images (except necessary ones)
+*.png
+*.jpg
+*.jpeg
+*.gif
+!docs/**/*.png
+
+# Build artifacts that shouldn't be published
+*.tsbuildinfo
+.cache/
+tmp/
+
+# Local development files
+quickstart.sh
+agents.md
+nano-banana-mcp.png
