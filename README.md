@@ -69,7 +69,7 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 - **Batch Processing**: Apply operations to entire directories
 
 ### 🔧 Developer Features
-- **NPX Support**: Run without installation using `npx -p @lyalindotcom/nano-banana-mcp nano-banana`
+- **Global NPM Package**: Easy installation via `npm install -g @lyalindotcom/nano-banana-mcp`
 - **Smart Path Handling**: Automatically creates directories and handles file paths
 - **Image Validation**: Verify generated images are valid and meet size requirements
 - **Comprehensive Error Handling**: Clear feedback on API errors, quota issues, and failures
@@ -77,19 +77,7 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 
 ## 🚀 Quick Install (1 Minute!)
 
-### Option 1: NPX (Recommended - No Installation!)
-```bash
-# Set up with Gemini CLI (interactive wizard)
-npx -p @lyalindotcom/nano-banana-mcp nano-banana setup
-
-# Or quick setup with API key
-npx -p @lyalindotcom/nano-banana-mcp nano-banana setup --api-key YOUR_GEMINI_KEY
-
-# Then use with Gemini CLI
-gemini chat
-```
-
-### Option 2: Global Install
+### Option 1: Global Install (Recommended)
 ```bash
 # Install globally
 npm install -g @lyalindotcom/nano-banana-mcp
@@ -101,7 +89,7 @@ nano-banana setup --api-key YOUR_GEMINI_KEY
 gemini chat
 ```
 
-### Option 3: From Source
+### Option 2: From Source
 ```bash
 # Clone the repo
 git clone https://github.com/yourusername/nano-banana-mcp.git

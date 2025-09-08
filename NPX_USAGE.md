@@ -1,12 +1,25 @@
 # NPX Usage Guide for Nano Banana MCP
 
-## 🚀 Quick Start with NPX (No Installation Required!)
+## ⚠️ IMPORTANT: NPX Limitations with MCP Servers
 
-You can use Nano Banana MCP directly with NPX without installing it globally. This is perfect for:
-- Quick one-time setups
-- CI/CD pipelines
-- Testing the latest version
-- Avoiding global package pollution
+**NPX is NOT recommended for running MCP servers with AI clients like Gemini CLI or Claude Desktop.** 
+
+Why? MCP clients need a stable path to the server executable, but NPX installs packages in temporary locations that change each time. This means:
+- ❌ Gemini CLI cannot connect to NPX-run servers
+- ❌ Claude Desktop cannot connect to NPX-run servers  
+- ❌ The `setup` command won't work properly with NPX
+
+**For MCP server usage, you MUST use:**
+1. **Global installation**: `npm install -g @lyalindotcom/nano-banana-mcp`
+2. **Local source**: Clone and build from GitHub
+
+## When NPX Can Be Used
+
+NPX is still useful for:
+- Quick one-time CLI commands (like `status` or `doctor`)
+- CI/CD pipelines that don't need MCP client integration
+- Testing the CLI tools
+- Creating initial `.env` files with `init`
 
 ## Basic NPX Commands
 
