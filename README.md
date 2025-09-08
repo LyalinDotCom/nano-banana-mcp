@@ -69,7 +69,7 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 - **Batch Processing**: Apply operations to entire directories
 
 ### 🔧 Developer Features
-- **NPX Support**: Run without installation using `npx @lyalindotcom/nano-banana-mcp`
+- **NPX Support**: Run without installation using `npx -p @lyalindotcom/nano-banana-mcp nano-banana`
 - **Smart Path Handling**: Automatically creates directories and handles file paths
 - **Image Validation**: Verify generated images are valid and meet size requirements
 - **Comprehensive Error Handling**: Clear feedback on API errors, quota issues, and failures
@@ -80,11 +80,11 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 ### Option 1: NPX (Recommended - No Installation!)
 ```bash
 # Run directly with npx - no installation needed!
-npx @lyalindotcom/nano-banana-mcp init --api-key YOUR_GEMINI_KEY
-npx @lyalindotcom/nano-banana-mcp serve
+npx -p @lyalindotcom/nano-banana-mcp nano-banana init --api-key YOUR_GEMINI_KEY
+npx -p @lyalindotcom/nano-banana-mcp nano-banana serve
 
 # Or set up with your AI client
-npx @lyalindotcom/nano-banana-mcp setup
+npx -p @lyalindotcom/nano-banana-mcp nano-banana setup
 ```
 
 ### Option 2: Global Install

@@ -43,7 +43,7 @@ npm version prerelease --preid=beta
 npm publish --tag beta
 
 # Test the beta package
-npx nano-banana-mcp@beta --version
+npx -p @lyalindotcom/nano-banana-mcp@beta nano-banana --version
 ```
 
 #### Publish as Latest (Production)
@@ -59,7 +59,7 @@ npm version major  # for breaking changes
 npm publish
 
 # Verify it works
-npx nano-banana-mcp --version
+npx -p @lyalindotcom/nano-banana-mcp nano-banana --version
 ```
 
 ## Post-Publishing
@@ -67,13 +67,13 @@ npx nano-banana-mcp --version
 ### Test NPX Installation
 ```bash
 # Test without cache
-npx --no-cache nano-banana-mcp --version
+npx --no-cache -p @lyalindotcom/nano-banana-mcp nano-banana --version
 
 # Test init command
-npx nano-banana-mcp init --api-key test
+npx -p @lyalindotcom/nano-banana-mcp nano-banana init --api-key test
 
 # Test serve command
-npx nano-banana-mcp serve --help
+npx -p @lyalindotcom/nano-banana-mcp nano-banana serve --help
 ```
 
 ### Update GitHub Repository

@@ -13,31 +13,31 @@ You can use Nano Banana MCP directly with NPX without installing it globally. Th
 ### 1. Initialize a New Project
 ```bash
 # Create a new project with .env file
-npx @lyalindotcom/nano-banana-mcp init --api-key YOUR_GEMINI_API_KEY
+npx -p @lyalindotcom/nano-banana-mcp nano-banana init --api-key YOUR_GEMINI_API_KEY
 ```
 
 ### 2. Set Up with Your AI Client
 ```bash
 # Interactive setup wizard
-npx @lyalindotcom/nano-banana-mcp setup
+npx -p @lyalindotcom/nano-banana-mcp nano-banana setup
 
 # Non-interactive setup with flags
-npx @lyalindotcom/nano-banana-mcp setup --api-key YOUR_KEY --trust
+npx -p @lyalindotcom/nano-banana-mcp nano-banana setup --api-key YOUR_KEY --trust
 ```
 
 ### 3. Run the MCP Server Directly
 ```bash
 # Start the server (reads .env or uses --api-key)
-npx @lyalindotcom/nano-banana-mcp serve
+npx -p @lyalindotcom/nano-banana-mcp nano-banana serve
 
 # With explicit API key
-npx @lyalindotcom/nano-banana-mcp serve --api-key YOUR_KEY
+npx -p @lyalindotcom/nano-banana-mcp nano-banana serve --api-key YOUR_KEY
 ```
 
 ### 4. Check Status
 ```bash
 # Check installation and configuration
-npx @lyalindotcom/nano-banana-mcp status
+npx -p @lyalindotcom/nano-banana-mcp nano-banana status
 ```
 
 ## Installation Options
@@ -45,7 +45,7 @@ npx @lyalindotcom/nano-banana-mcp status
 ### Option 1: NPX (No Install)
 Best for one-time use or testing:
 ```bash
-npx @lyalindotcom/nano-banana-mcp@latest serve
+npx -p @lyalindotcom/nano-banana-mcp@latest nano-banana serve
 ```
 
 ### Option 2: Global Install
@@ -80,7 +80,7 @@ jobs:
       
       - name: Generate images with Nano Banana
         run: |
-          npx nano-banana-mcp serve &
+          npx -p @lyalindotcom/nano-banana-mcp nano-banana serve &
           SERVER_PID=$!
           # Your image generation commands here
           kill $SERVER_PID
@@ -105,13 +105,13 @@ CMD ["npx", "nano-banana-mcp", "serve"]
 ### Use Specific Version
 ```bash
 # Use a specific version
-npx nano-banana-mcp@1.0.0 serve
+npx -p @lyalindotcom/nano-banana-mcp@1.0.0 nano-banana serve
 
 # Use beta version
-npx nano-banana-mcp@beta serve
+npx -p @lyalindotcom/nano-banana-mcp@beta nano-banana serve
 
 # Always use latest
-npx nano-banana-mcp@latest serve
+npx -p @lyalindotcom/nano-banana-mcp@latest nano-banana serve
 ```
 
 ### Run Without Cache
@@ -138,19 +138,19 @@ npm install -g npx
 ```bash
 # Option 1: Use .env file
 echo "GEMINI_API_KEY=your_key" > .env
-npx nano-banana-mcp serve
+npx -p @lyalindotcom/nano-banana-mcp nano-banana serve
 
 # Option 2: Use environment variable
-GEMINI_API_KEY=your_key npx nano-banana-mcp serve
+GEMINI_API_KEY=your_key npx -p @lyalindotcom/nano-banana-mcp nano-banana serve
 
 # Option 3: Use command flag
-npx nano-banana-mcp serve --api-key your_key
+npx -p @lyalindotcom/nano-banana-mcp nano-banana serve --api-key your_key
 ```
 
 ### Issue: Permission denied
 ```bash
 # Run with sudo if needed (not recommended)
-sudo npx nano-banana-mcp setup
+sudo npx -p @lyalindotcom/nano-banana-mcp nano-banana setup
 
 # Better: fix npm permissions
 npm config set prefix ~/.npm-global
@@ -191,10 +191,10 @@ kill $SERVER_PID
 const { execSync } = require('child_process');
 
 // Initialize project
-execSync('npx nano-banana-mcp init --api-key ' + process.env.GEMINI_API_KEY);
+execSync('npx -p @lyalindotcom/nano-banana-mcp nano-banana init --api-key ' + process.env.GEMINI_API_KEY);
 
 // Set up with AI client
-execSync('npx nano-banana-mcp setup --trust --no-interactive');
+execSync('npx -p @lyalindotcom/nano-banana-mcp nano-banana setup --trust --no-interactive');
 
 console.log('✅ Nano Banana MCP is ready!');
 ```
