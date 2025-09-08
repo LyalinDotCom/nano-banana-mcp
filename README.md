@@ -12,10 +12,10 @@ Generate, edit, and manipulate images using natural language commands through an
 
 Works with any MCP-compatible client:
 
-- **[Gemini CLI](docs/gemini-cli-setup.md)** (Recommended) - Terminal-based AI with full MCP support
-- **[Claude Desktop](docs/claude-desktop-setup.md)** - Anthropic's desktop application  
-- **[Codex CLI](docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows
-- **[Other Clients](docs/other-clients.md)** - VS Code, Continue, Cursor, and more
+- **[Gemini CLI](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/gemini-cli-setup.md)** (Recommended) - Terminal-based AI with full MCP support
+- **[Claude Desktop](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/claude-desktop-setup.md)** - Anthropic's desktop application  
+- **[Codex CLI](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows
+- **[Other Clients](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/other-clients.md)** - VS Code, Continue, Cursor, and more
 
 ## Features
 
@@ -52,7 +52,7 @@ nano-banana setup
 ### Option 2: From Source
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/nano-banana-mcp.git
+git clone https://github.com/LyalinDotCom/nano-banana-mcp.git
 cd nano-banana-mcp
 
 # Run the quickstart script - it does EVERYTHING!
@@ -106,7 +106,7 @@ The wizard will:
    npm run build
    ```
 
-3. **Add to Gemini CLI manually** (see [docs/gemini-cli-setup.md](docs/gemini-cli-setup.md))
+3. **Add to Gemini CLI manually** (see [Gemini CLI Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/gemini-cli-setup.md))
 
 Get your API key from: https://aistudio.google.com/apikey
 
@@ -156,10 +156,10 @@ Once configured, use with your MCP client of choice. Simply describe what you wa
 
 ## 📚 Documentation
 
-- **[Gemini CLI Setup](docs/gemini-cli-setup.md)** - The most powerful integration
-- **[Codex CLI Setup](docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows  
-- **[Claude Desktop Setup](docs/claude-desktop-setup.md)** - Use with Claude's desktop app
-- **[Other MCP Clients](docs/other-clients.md)** - VS Code, Continue, Cursor, and more
+- **[Gemini CLI Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/gemini-cli-setup.md)** - The most powerful integration
+- **[Codex CLI Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows  
+- **[Claude Desktop Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/claude-desktop-setup.md)** - Use with Claude's desktop app
+- **[Other MCP Clients](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/other-clients.md)** - VS Code, Continue, Cursor, and more
 - **[API Reference](#available-tools)** - Detailed tool documentation
 
 ## Available Tools
@@ -302,7 +302,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details
+MIT License - see [LICENSE](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/LICENSE) file for details
 
 ## 🙏 Acknowledgments
 
@@ -312,8 +312,8 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/yourusername/nano-banana-mcp)
-- [Report Issues](https://github.com/yourusername/nano-banana-mcp/issues)
+- [GitHub Repository](https://github.com/LyalinDotCom/nano-banana-mcp)
+- [Report Issues](https://github.com/LyalinDotCom/nano-banana-mcp/issues)
 - [Gemini CLI](https://github.com/google-gemini/gemini-cli)
 - [Codex CLI](https://github.com/openai/codex)
 - [MCP Specification](https://modelcontextprotocol.io)
