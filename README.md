@@ -1,6 +1,6 @@
 # Nano Banana MCP Server
 
-![Nano Banana Logo](nano-banana-mcp.png)
+![Nano Banana Logo](https://raw.githubusercontent.com/LyalinDotCom/nano-banana-mcp/main/nano-banana-mcp.png)
 
 A Model Context Protocol (MCP) server that provides powerful image generation capabilities using Google's Gemini Flash 2.5 model. This server acts as a clean wrapper around the Gemini API, enabling AI agents to generate, edit, and compose images through simple tool calls.
 
