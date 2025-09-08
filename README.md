@@ -4,54 +4,18 @@
 
 A Model Context Protocol (MCP) server that provides powerful image generation capabilities using Google's Gemini Flash 2.5 model. This server acts as a clean wrapper around the Gemini API, enabling AI agents to generate, edit, and compose images through simple tool calls.
 
-## ✨ See It In Action
+## ✨ What It Does
 
-```bash
-# With Gemini CLI - Just use natural language!
-$ gemini chat
-> Create a cyberpunk robot holding a banana, save it to ./robot.png
+Generate, edit, and manipulate images using natural language commands through any MCP-compatible AI client.
 
-🤖 Generating your cyberpunk robot image...
-✅ Image saved to ./robot.png (1024x1024)
+## 🚀 Compatible Tools
 
-> Now make 5 color variations
-🤖 Creating 5 variations...
-✅ Generated: robot-1.png, robot-2.png, robot-3.png, robot-4.png, robot-5.png
-```
+Works with any MCP-compatible client:
 
-## 🚀 Quick Start with Popular Tools
-
-### [Gemini CLI](docs/gemini-cli-setup.md) (Recommended)
-The most powerful integration - use natural language to generate images directly from your terminal:
-```bash
-gemini chat
-> "Create a cyberpunk city at night and save it to ./art/city.png"
-```
-[📖 Full Gemini CLI Setup Guide →](docs/gemini-cli-setup.md)
-
-### [Codex CLI](docs/codex-cli-setup.md)
-Powerful Rust-based CLI with CI/CD support and advanced automation:
-```bash
-codex exec --full-auto "Generate complete asset pipeline for v2.0 release"
-```
-[📖 Full Codex CLI Setup Guide →](docs/codex-cli-setup.md)
-
-### [Claude Desktop](docs/claude-desktop-setup.md)
-Integrate with Claude's desktop app for image generation in your conversations:
-```json
-{
-  "mcpServers": {
-    "nano-banana": {
-      "command": "nano-banana-server"
-    }
-  }
-}
-```
-Note: Requires global installation via `npm install -g @lyalindotcom/nano-banana-mcp`
-[📖 Full Claude Desktop Setup Guide →](docs/claude-desktop-setup.md)
-
-### [Other MCP Clients](docs/other-clients.md)
-Works with any MCP-compatible client. [See integration examples →](docs/other-clients.md)
+- **[Gemini CLI](docs/gemini-cli-setup.md)** (Recommended) - Terminal-based AI with full MCP support
+- **[Claude Desktop](docs/claude-desktop-setup.md)** - Anthropic's desktop application  
+- **[Codex CLI](docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows
+- **[Other Clients](docs/other-clients.md)** - VS Code, Continue, Cursor, and more
 
 ## Features
 
@@ -69,7 +33,6 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 - **Batch Processing**: Apply operations to entire directories
 
 ### 🔧 Developer Features
-- **Global NPM Package**: Easy installation via `npm install -g @lyalindotcom/nano-banana-mcp`
 - **Smart Path Handling**: Automatically creates directories and handles file paths
 - **Image Validation**: Verify generated images are valid and meet size requirements
 - **Comprehensive Error Handling**: Clear feedback on API errors, quota issues, and failures
@@ -82,11 +45,8 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 # Install globally
 npm install -g @lyalindotcom/nano-banana-mcp
 
-# Set up with Gemini CLI
-nano-banana setup --api-key YOUR_GEMINI_KEY
-
-# Then use with Gemini CLI
-gemini chat
+# Run setup wizard
+nano-banana setup
 ```
 
 ### Option 2: From Source
@@ -178,16 +138,12 @@ nano-banana remove
 
 ## Usage
 
-Once configured, just use natural language with Gemini CLI:
+Once configured, use with your MCP client of choice. Simply describe what you want:
 
-```bash
-gemini chat
-```
-
-Then ask for images:
 - "Generate a cyberpunk city at ./city.png"
 - "Create 5 potion icons at ./items/potions.png"
 - "Add a sunset to ./photo.jpg"
+- "Combine these images into a panorama"
 
 ## 🌟 Why Nano Banana?
 
