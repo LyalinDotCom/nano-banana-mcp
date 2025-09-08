@@ -10,7 +10,14 @@ Integrate the Nano Banana MCP server with Claude Desktop to generate images dire
 
 ## Installation
 
-### Step 1: Clone and Build
+### Option 1: Install from npm (Recommended)
+
+```bash
+# Install globally
+npm install -g @lyalindotcom/nano-banana-mcp
+```
+
+### Option 2: Build from Source
 
 ```bash
 # Clone the repository
@@ -41,12 +48,12 @@ GEMINI_API_KEY=your-gemini-api-key-here
 
 2. Add the Nano Banana server configuration:
 
+**For npm installation:**
 ```json
 {
   "mcpServers": {
     "nano-banana": {
-      "command": "node",
-      "args": ["/absolute/path/to/nano-banana-mcp/dist/index.js"],
+      "command": "nano-banana-server",
       "env": {
         "GEMINI_API_KEY": "your-api-key-here"
       }
@@ -55,7 +62,20 @@ GEMINI_API_KEY=your-gemini-api-key-here
 }
 ```
 
-**Note:** Replace `/absolute/path/to/nano-banana-mcp` with the actual path to your installation.
+**For source installation:**
+```json
+{
+  "mcpServers": {
+    "nano-banana": {
+      "command": "node",
+      "args": ["/absolute/path/to/nano-banana-mcp/dist/server/index.js"],
+      "env": {
+        "GEMINI_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
 
 ### Step 4: Restart Claude Desktop
 
@@ -125,8 +145,7 @@ Instead of hardcoding the API key:
 {
   "mcpServers": {
     "nano-banana": {
-      "command": "node",
-      "args": ["/path/to/nano-banana-mcp/dist/index.js"],
+      "command": "nano-banana-server",
       "env": {
         "GEMINI_API_KEY": "${GEMINI_API_KEY}"
       }
@@ -162,8 +181,7 @@ To see server output for debugging:
 {
   "mcpServers": {
     "nano-banana": {
-      "command": "node",
-      "args": ["/path/to/nano-banana-mcp/dist/index.js"],
+      "command": "nano-banana-server",
       "env": {
         "GEMINI_API_KEY": "your-api-key",
         "DEBUG": "true"

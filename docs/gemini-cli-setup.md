@@ -34,24 +34,25 @@ echo "GEMINI_API_KEY=your-api-key-here" > .env
 
 ### Step 3: Add to Gemini CLI
 
-Use the Gemini CLI's built-in command to add the server:
+**For npm installation (recommended):**
 
 ```bash
-gemini mcp add nano-banana node /path/to/nano-banana-mcp/dist/index.js \
-  -e GEMINI_API_KEY=$GEMINI_API_KEY \
-  --trust \
-  --timeout 60000 \
-  --description "Gemini Flash 2.5 image generation"
+# First install globally
+npm install -g @lyalindotcom/nano-banana-mcp
+
+# Then run setup
+nano-banana setup
 ```
 
-Or manually edit `~/.gemini/settings.json`:
+**For manual configuration:**
+
+Edit `~/.gemini/settings.json`:
 
 ```json
 {
   "mcpServers": {
     "nano-banana": {
-      "command": "node",
-      "args": ["/absolute/path/to/nano-banana-mcp/dist/index.js"],
+      "command": "nano-banana-server",
       "env": {
         "GEMINI_API_KEY": "$GEMINI_API_KEY"
       },

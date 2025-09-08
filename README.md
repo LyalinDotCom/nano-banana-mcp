@@ -42,12 +42,12 @@ Integrate with Claude's desktop app for image generation in your conversations:
 {
   "mcpServers": {
     "nano-banana": {
-      "command": "node",
-      "args": ["/path/to/nano-banana-mcp/dist/index.js"]
+      "command": "nano-banana-server"
     }
   }
 }
 ```
+Note: Requires global installation via `npm install -g @lyalindotcom/nano-banana-mcp`
 [📖 Full Claude Desktop Setup Guide →](docs/claude-desktop-setup.md)
 
 ### [Other MCP Clients](docs/other-clients.md)
