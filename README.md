@@ -79,12 +79,14 @@ Works with any MCP-compatible client. [See integration examples →](docs/other-
 
 ### Option 1: NPX (Recommended - No Installation!)
 ```bash
-# Run directly with npx - no installation needed!
-npx -p @lyalindotcom/nano-banana-mcp nano-banana init --api-key YOUR_GEMINI_KEY
-npx -p @lyalindotcom/nano-banana-mcp nano-banana serve
-
-# Or set up with your AI client
+# Set up with Gemini CLI (interactive wizard)
 npx -p @lyalindotcom/nano-banana-mcp nano-banana setup
+
+# Or quick setup with API key
+npx -p @lyalindotcom/nano-banana-mcp nano-banana setup --api-key YOUR_GEMINI_KEY
+
+# Then use with Gemini CLI
+gemini chat
 ```
 
 ### Option 2: Global Install
@@ -92,9 +94,11 @@ npx -p @lyalindotcom/nano-banana-mcp nano-banana setup
 # Install globally
 npm install -g @lyalindotcom/nano-banana-mcp
 
-# Initialize and run
-nano-banana init --api-key YOUR_GEMINI_KEY
-nano-banana serve
+# Set up with Gemini CLI
+nano-banana setup --api-key YOUR_GEMINI_KEY
+
+# Then use with Gemini CLI
+gemini chat
 ```
 
 ### Option 3: From Source
@@ -163,8 +167,14 @@ Get your API key from: https://makersuite.google.com/app/apikey
 The Nano Banana CLI provides powerful management tools:
 
 ```bash
-# Interactive setup wizard
+# Interactive setup wizard (configures Gemini CLI integration)
 nano-banana setup
+
+# Create .env file with API key (does NOT configure Gemini CLI)
+nano-banana init --api-key YOUR_KEY
+
+# Start the MCP server directly (for manual testing)
+nano-banana serve
 
 # Check installation status
 nano-banana status
@@ -175,6 +185,8 @@ nano-banana doctor
 # Safely remove configuration
 nano-banana remove
 ```
+
+**Important:** Use `setup` to configure with Gemini CLI. The `init` command only creates a `.env` file.
 
 ## Usage
 
