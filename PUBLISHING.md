@@ -155,8 +155,7 @@ Current package.json settings:
   "files": [
     "dist/",
     "README.md",
-    "LICENSE",
-    "docs/"
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public",

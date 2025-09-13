@@ -126,7 +126,6 @@ src/
 ### Repository Structure
 - `src/server/`: MCP server entry and tool registrations
 - `src/cli/`: CLI entry and commands (`setup`, `serve`, `status`, `remove`, etc.)
-- `docs/`: User and integration documentation (kept npm- and GitHub-safe)
 - `examples/`: Example usage and minimal scripts
 - `test-scripts/`: Ad-hoc test runners/utilities (keep clean and focused)
 - `test-assets/`: Local fixtures for non-network tests
@@ -264,6 +263,21 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 }
 ```
 
+NPX alternative (no global install):
+```json
+{
+  "mcpServers": {
+    "nano-banana": {
+      "command": "npx",
+      "args": ["-y", "-p", "@lyalindotcom/nano-banana-mcp", "nano-banana-server"],
+      "env": {
+        "GEMINI_API_KEY": "${GEMINI_API_KEY}"
+      }
+    }
+  }
+}
+```
+
 ## Common Issues
 
 ### API Key Issues
@@ -318,7 +332,7 @@ npm start
 
 This project is published to both npm and GitHub. Docs must render correctly in both places.
 
-- Links: Prefer relative links to files within the package (e.g., `docs/...`). Ensure referenced files are included in `package.json#files`.
+- Links: Prefer relative links to files within the package. User setup now lives in `README.md`; avoid creating separate docs unless necessary.
 - External references: Use full `https://` URLs for external resources. Avoid `blob/main` GitHub links when a local relative path exists, as those can break on npm.
 - Images: Store images used by docs inside the repo and include them in the npm package. Reference with relative paths so they work on npm and GitHub; if external, use stable `https://` URLs.
 - Dual install paths: Maintain instructions for both npm install (global or project) and from-source (GitHub) workflows.

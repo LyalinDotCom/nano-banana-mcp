@@ -2,20 +2,15 @@
 
 ![Nano Banana Logo](https://raw.githubusercontent.com/LyalinDotCom/nano-banana-mcp/main/nano-banana-mcp.png)
 
-A Model Context Protocol (MCP) server that provides powerful image generation capabilities using Google's Gemini Flash 2.5 model. This server acts as a clean wrapper around the Gemini API, enabling AI agents to generate, edit, and compose images through simple tool calls.
+Nano Banana is an MCP server that exposes Google Gemini Flash 2.5 Image Generation via a clean, focused interface. It is not a general multi‑model server — it is a thin wrapper around Gemini Flash 2.5 image generation only.
 
 ## ✨ What It Does
 
-Generate, edit, and manipulate images using natural language commands through any MCP-compatible AI client.
+Generate, edit, and manipulate images using natural language via any MCP‑compatible client.
 
 ## 🚀 Compatible Tools
 
-Works with any MCP-compatible client:
-
-- **[Gemini CLI](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/gemini-cli-setup.md)** (Recommended) - Terminal-based AI with full MCP support
-- **[Claude Desktop](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/claude-desktop-setup.md)** - Anthropic's desktop application  
-- **[Codex CLI](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows
-- **[Other Clients](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/other-clients.md)** - VS Code, Continue, Cursor, and more
+Works with any MCP‑compatible client. Below we document Gemini CLI (recommended) and a minimal generic MCP configuration.
 
 ## Features
 
@@ -49,7 +44,48 @@ npm install -g @lyalindotcom/nano-banana-mcp
 nano-banana setup
 ```
 
-### Option 2: From Source
+### Option 2: NPX (No Install)
+```bash
+# Run on demand via NPX (no global install)
+# Great for Gemini CLI and generic MCP config
+npx -y -p @lyalindotcom/nano-banana-mcp nano-banana --version
+```
+
+Set your API key once in your shell (required):
+```bash
+export GEMINI_API_KEY="your-api-key"
+```
+
+Gemini CLI configuration (`~/.gemini/settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "nano-banana": {
+      "command": "npx",
+      "args": ["-y", "-p", "@lyalindotcom/nano-banana-mcp", "nano-banana-server"],
+      "env": { "GEMINI_API_KEY": "${GEMINI_API_KEY}" },
+      "timeout": 60000,
+      "trust": true
+    }
+  }
+}
+```
+
+Generic MCP configuration (for other clients using stdio):
+```json
+{
+  "mcpServers": {
+    "nano-banana": {
+      "command": "npx",
+      "args": ["-y", "-p", "@lyalindotcom/nano-banana-mcp", "nano-banana-server"],
+      "env": { "GEMINI_API_KEY": "${GEMINI_API_KEY}" }
+    }
+  }
+}
+```
+
+### Option 3: From Source
 ```bash
 # Clone the repo
 git clone https://github.com/LyalinDotCom/nano-banana-mcp.git
@@ -71,42 +107,20 @@ The quickstart script will:
 - ✅ Set up Gemini CLI integration
 - ✅ Verify everything works
 
-## Installation Options
+## Minimal Setup (from source)
 
-### Option 1: Automatic Setup with CLI (Recommended)
-
-Our CLI tool handles everything for you:
-
+1) Configure API key:
 ```bash
-# After cloning and installing
-cd nano-banana-mcp
-npm install
-
-# Run interactive setup
-npm run setup
+cp .env.example .env
+# Edit .env with your GEMINI_API_KEY
 ```
 
-The wizard will:
-- ✅ Check prerequisites (Node.js 18+, Gemini CLI)
-- ✅ Auto-detect installations
-- ✅ Configure your API key securely
-- ✅ Test the server works
-- ✅ Create automatic backups
+2) Build:
+```bash
+npm run build
+```
 
-### Option 2: Manual Setup
-
-1. **Configure API key:**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your GEMINI_API_KEY
-   ```
-
-2. **Build the project:**
-   ```bash
-   npm run build
-   ```
-
-3. **Add to Gemini CLI manually** (see [Gemini CLI Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/gemini-cli-setup.md))
+3) Configure Gemini CLI using the JSON shown above.
 
 Get your API key from: https://aistudio.google.com/apikey
 
@@ -149,18 +163,14 @@ Once configured, use with your MCP client of choice. Simply describe what you wa
 
 - **🎨 Full Gemini Flash 2.5 Power**: Access the latest image generation capabilities
 - **🚀 Natural Language Interface**: Just describe what you want
-- **🔧 Flexible Integration**: Works with Gemini CLI, Claude Desktop, and any MCP client
+- **🔧 Flexible Integration**: Works with Gemini CLI and other MCP clients
 - **📁 Direct File Management**: Images save exactly where you need them
 - **🎯 Smart Context**: One tool handles generation, editing, and composition
 - **⚡ Batch Operations**: Generate up to 10 variations at once
 
 ## 📚 Documentation
 
-- **[Gemini CLI Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/gemini-cli-setup.md)** - The most powerful integration
-- **[Codex CLI Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/codex-cli-setup.md)** - Advanced automation and CI/CD workflows  
-- **[Claude Desktop Setup](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/claude-desktop-setup.md)** - Use with Claude's desktop app
-- **[Other MCP Clients](https://github.com/LyalinDotCom/nano-banana-mcp/blob/main/docs/other-clients.md)** - VS Code, Continue, Cursor, and more
-- **[API Reference](#available-tools)** - Detailed tool documentation
+This README contains the supported setup paths. Nano Banana targets the Gemini Flash 2.5 image generation model only.
 
 ## Available Tools
 
