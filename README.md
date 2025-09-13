@@ -241,6 +241,8 @@ Check if an image file exists and is valid.
 
 4. **Validation**: Uses Sharp to verify images are properly generated and meet minimum size requirements
 
+5. **No Overwrites**: The server never overwrites existing files. If the requested `outputPath` (or any batch variation path) already exists, the server returns an error and does not write. Choose a new path or remove the file before retrying.
+
 ## Error Handling
 
 The server provides detailed error information:
@@ -250,6 +252,7 @@ The server provides detailed error information:
 - `INVALID_INPUT`: Bad parameters
 - `FILE_WRITE_ERROR`: Cannot save to path
 - `VALIDATION_FAILED`: Image corrupt or too small
+- `FILE_EXISTS`: Output file already exists; choose a new path
 
 ## Testing
 

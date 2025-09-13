@@ -409,6 +409,13 @@ export class ImageTools {
             }
           }
 
+          // Prevent overwriting existing files
+          try {
+            await fs.access(outputPath);
+            console.error(`Output file already exists, skipping: ${outputPath}`);
+            continue;
+          } catch {}
+
           // Save the processed image
           await sharp(data, {
             raw: {
@@ -680,6 +687,15 @@ export class ImageTools {
         finalImage = finalImage.composite(composites);
       }
 
+      // Prevent overwriting existing files
+      try {
+        await fs.access(validated.outputPath);
+        return {
+          success: false,
+          error: `Output file already exists: ${validated.outputPath}`
+        };
+      } catch {}
+
       // Save the combined image
       await finalImage.toFile(validated.outputPath);
       
@@ -737,6 +753,15 @@ export class ImageTools {
         operations.push('flop');
       }
       
+      // Prevent overwriting existing files
+      try {
+        await fs.access(validated.outputPath);
+        return {
+          success: false,
+          error: `Output file already exists: ${validated.outputPath}`
+        };
+      } catch {}
+
       // Save and get metadata
       await image.toFile(validated.outputPath);
       const metadata = await sharp(validated.outputPath).metadata();
@@ -828,6 +853,15 @@ export class ImageTools {
         adjustmentsApplied.push('normalize');
       }
       
+      // Prevent overwriting existing files
+      try {
+        await fs.access(validated.outputPath);
+        return {
+          success: false,
+          error: `Output file already exists: ${validated.outputPath}`
+        };
+      } catch {}
+
       // Save the adjusted image
       await image.toFile(validated.outputPath);
       
@@ -877,6 +911,15 @@ export class ImageTools {
       // Apply all composites
       baseImage = baseImage.composite(composites);
       
+      // Prevent overwriting existing files
+      try {
+        await fs.access(validated.outputPath);
+        return {
+          success: false,
+          error: `Output file already exists: ${validated.outputPath}`
+        };
+      } catch {}
+
       // Save the composited image
       await baseImage.toFile(validated.outputPath);
       
@@ -952,6 +995,18 @@ export class ImageTools {
           const outputName = `${prefix}${basename}${suffix}${ext}`;
           const outputPath = path.join(validated.outputDir, outputName);
           
+          // Prevent overwriting existing files; mark as failed if exists
+          try {
+            await fs.access(outputPath);
+            processed.push({
+              inputPath: file,
+              outputPath,
+              success: false,
+              error: `Output file already exists: ${outputPath}`
+            });
+            continue;
+          } catch {}
+
           // Save the processed image
           await image.toFile(outputPath);
           

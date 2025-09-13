@@ -46,6 +46,29 @@ export class GeminiClient {
 
   async generateImages(options: GenerateImageOptions): Promise<GenerateImageResult> {
     try {
+      // Pre-compute and validate output paths to prevent overwrite
+      const intendedPaths: string[] = [];
+      const total = options.count || 1;
+      for (let i = 0; i < (total < 1 ? 1 : total); i++) {
+        const out = this.getOutputPath(options.outputPath, i, total || 1);
+        intendedPaths.push(out);
+      }
+      // Check if any intended output already exists
+      for (const p of intendedPaths) {
+        try {
+          await fs.access(p);
+          return {
+            success: false,
+            error: {
+              code: 'FILE_EXISTS',
+              message: `Output file already exists: ${p}`
+            }
+          };
+        } catch {
+          // not exists, OK
+        }
+      }
+
       const count = options.count || 1;
       if (count < 1 || count > 10) {
         return {
@@ -83,7 +106,18 @@ export class GeminiClient {
               await this.ensureDirectoryExists(outputPath);
               
               const buffer = Buffer.from(imageData, 'base64');
-              await fs.writeFile(outputPath, buffer);
+              // Double-check non-existence right before write (race safety)
+              try {
+                await fs.access(outputPath);
+                return {
+                  success: false,
+                  error: {
+                    code: 'FILE_EXISTS',
+                    message: `Output file already exists: ${outputPath}`
+                  }
+                };
+              } catch {}
+              await fs.writeFile(outputPath, buffer, { flag: 'wx' });
               
               const metadata = await sharp(outputPath).metadata();
               
@@ -322,6 +356,9 @@ export class GeminiClient {
     if (error.message?.includes('API key')) {
       code = 'INVALID_API_KEY';
       message = 'Invalid or missing API key';
+    } else if (error.message?.includes('exists')) {
+      code = 'FILE_EXISTS';
+      message = error.message;
     } else if (error.message?.includes('quota') || error.message?.includes('limit')) {
       code = 'QUOTA_EXCEEDED';
       message = 'API quota exceeded or rate limit reached';
