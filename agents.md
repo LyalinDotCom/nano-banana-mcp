@@ -13,6 +13,27 @@ gemini chat
 > "Generate a robot holding a banana at ./demo.png"
 ```
 
+## Maintainer Workflow & Standards
+
+These guidelines reflect the preferred way of working on this project.
+
+- Static-first: Prefer static analysis and type checks over running dev servers. Do not auto-run `npm run dev` in PR checks or scripts.
+- Validate via build: Use `npm run build` (TypeScript compile) to verify changes.
+- Tests welcome: Clean, focused test scripts are encouraged. Keep them organized under `test-scripts/`, `examples/`, or a future `tests/` folder.
+- Structured folders: Keep code and assets in well-defined directories (see Repository Structure).
+- No surprise side effects: Scripts must not modify user configs unless explicitly invoked (e.g., CLI `setup`).
+
+Recommended loop: 1) Make change → 2) `npm run build` → 3) Run targeted test script (optional) → 4) Open PR.
+
+## Model Policy (Required)
+
+Always use the latest Google Gemini 2.5 models by default. Do not use 2.0, 1.5, or lower unless explicitly requested.
+
+- Defaults: Prefer Gemini 2.5 Flash or 2.5 Pro depending on task needs.
+- Never downgrade: Do not introduce 2.0/1.5 or lower model IDs in code, docs, or examples.
+- Overrides: If a model override is supported, reject 2.0/1.5 unless the request explicitly opts in.
+- Maintenance: Update default model identifiers as Google ships newer 2.5 variants/GA.
+
 ## Project Overview
 This is an MCP (Model Context Protocol) server that wraps the Gemini Flash 2.5 image generation API. It provides a clean, unopinionated interface for AI agents to generate, edit, and compose images.
 
@@ -37,6 +58,8 @@ We now include a powerful CLI tool that makes setup seamless:
 3. **Batch support built-in**: Generate 1-10 variations with a single call
 4. **Path flexibility**: Accept both relative and absolute paths, auto-create directories
 
+Note: Beyond generation/validation, the server also exposes local Sharp-based tools (transform, adjust, composite, combine, batch). Generation remains unified under `generate_image` for simplicity.
+
 ## API Details
 
 ### Gemini Flash 2.5 Model
@@ -47,6 +70,8 @@ We now include a powerful CLI tool that makes setup seamless:
   - Multi-image composition and style transfer
   - High-fidelity text rendering in images
   - All images include SynthID watermark
+
+Model policy reminder: Use 2.5 Flash/Pro. Do not use 2.0/1.5 or lower.
 
 ### Tool Specifications
 
@@ -97,6 +122,16 @@ src/
 ├── tools.ts          # Tool implementations, Zod schemas
 └── gemini-client.ts  # Gemini API wrapper, error handling
 ```
+
+### Repository Structure
+- `src/server/`: MCP server entry and tool registrations
+- `src/cli/`: CLI entry and commands (`setup`, `serve`, `status`, `remove`, etc.)
+- `docs/`: User and integration documentation (kept npm- and GitHub-safe)
+- `examples/`: Example usage and minimal scripts
+- `test-scripts/`: Ad-hoc test runners/utilities (keep clean and focused)
+- `test-assets/`: Local fixtures for non-network tests
+
+Keep additions within these folders. Avoid new top-level directories unless justified.
 
 ### Error Handling Strategy
 1. Never throw - always return success/error object
@@ -193,6 +228,15 @@ generate_image({
    - [ ] Handles absolute paths
    - [ ] Overwrites existing files
 
+## Static Analysis & PR Checks
+
+Run static checks locally before opening a PR:
+- Type-check/build: `npm run build` (tsc compile)
+- Optional type-only: `npx tsc --noEmit` for fast iteration
+- Packaging sanity (optional): `npm pack --dry-run` to verify published files
+
+If linting is added in the future, keep it fast and non-destructive (e.g., `npm run lint`). CI should run build/tests but must not auto-run dev servers.
+
 ## Environment Setup
 
 1. Get Gemini API key from: https://makersuite.google.com/app/apikey
@@ -200,6 +244,8 @@ generate_image({
 3. Install dependencies: `npm install`
 4. Build: `npm run build`
 5. Run: `npm start` or `npm run dev`
+
+Note: Contributors should not rely on `npm run dev` for validation. Use build/static checks; maintainers prefer to run any runtime testing manually.
 
 ## Claude Desktop Integration
 
@@ -267,6 +313,15 @@ npm run dev examples/test.ts
 # Start production server
 npm start
 ```
+
+## Publishing & Markdown Guidelines
+
+This project is published to both npm and GitHub. Docs must render correctly in both places.
+
+- Links: Prefer relative links to files within the package (e.g., `docs/...`). Ensure referenced files are included in `package.json#files`.
+- External references: Use full `https://` URLs for external resources. Avoid `blob/main` GitHub links when a local relative path exists, as those can break on npm.
+- Images: Store images used by docs inside the repo and include them in the npm package. Reference with relative paths so they work on npm and GitHub; if external, use stable `https://` URLs.
+- Dual install paths: Maintain instructions for both npm install (global or project) and from-source (GitHub) workflows.
 
 ## Version History
 
